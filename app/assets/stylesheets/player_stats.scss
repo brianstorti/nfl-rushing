@@ -23,10 +23,6 @@ table {
     text-align: center;
   }
 
-  tr {
-    height: 50px;
-  }
-
   tr:nth-child(even) {
     background-color: #ccfbf1;
   }
@@ -37,5 +33,9 @@ table {
 
   tr:hover {
     background-color: #bbd6cf;
+  }
+
+  .name-column {
+    width: 150px;
   }
 }
