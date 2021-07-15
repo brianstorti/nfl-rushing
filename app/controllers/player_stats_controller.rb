@@ -22,7 +22,7 @@ class PlayerStatsController < ApplicationController
 
     # Streaming response
     self.response_body = Enumerator.new do |rows|
-      rows << CSV.generate_line(PlayerStat::CSV_FIELDS)
+      rows << CSV.generate_line(PlayerStat.csv_headers)
 
       # Ideally we'd use `find_each` instead of `each` here to avoid loading
       # all the player stats into memory. This would break the order of the
