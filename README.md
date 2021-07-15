@@ -1,24 +1,27 @@
-# README
+# NFL Rushing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a standard Rails application using a PostgreSQL database.
 
-Things you may want to cover:
+Assuming you have `ruby` (2.7.2), `yarn` and `postgres` installed, run the setup
+script to install the dependencies, prepare the database and import the seed
+data:
 
-* Ruby version
+```
+$ bin/setup
+```
 
-* System dependencies
+And then you can start the Rails server:
 
-* Configuration
+```
+$ bin/rails server
+```
 
-* Database creation
+And access it on http://localhost:3000.
 
-* Database initialization
+Run the tests with:
 
-* How to run the test suite
+```
+$ bin/rails test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Alternatively, you can access it live [here](https://nfl-brian.herokuapp.com).
