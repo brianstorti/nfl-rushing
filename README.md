@@ -25,3 +25,5 @@ $ bin/rails test
 ```
 
 Alternatively, you can access it live [here](https://nfl-brian.herokuapp.com).
+
+![screenshot](docs/screenshot.png)
