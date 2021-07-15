@@ -9,9 +9,8 @@ class PlayerStatsControllerTest < ActionDispatch::IntegrationTest
     assert_match player_stats(:shaun).name, response.body
   end
 
-  test "filters by player name" do
+  test "applies filter" do
     get player_stats_url, params: { player_name: player_stats(:joe).name }
-
 
     assert_response :success
     assert_match player_stats(:joe).name, response.body
@@ -21,7 +20,7 @@ class PlayerStatsControllerTest < ActionDispatch::IntegrationTest
   test "streams csv response" do
     get player_stats_url, params: { format: :csv }
 
-    assert_match PlayerStat::CSV_FIELDS.join(","), response.body
+    assert_match PlayerStat.csv_headers.join(","), response.body
     assert_match player_stats(:joe).to_csv_row.join(","), response.body
     assert_match player_stats(:shaun).to_csv_row.join(","), response.body
 

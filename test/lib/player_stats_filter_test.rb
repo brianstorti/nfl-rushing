@@ -7,10 +7,11 @@ class PlayerStatsFilterTest < ActiveSupport::TestCase
   end
 
   test "filters by player name" do
-    filter = PlayerStatsFilter.new(player_name: player_stats(:joe).name)
+    name = player_stats(:joe).name
+    filter = PlayerStatsFilter.new(player_name: name)
     results = filter.find_stats
     assert_equal 1, results.size
-    assert_equal player_stats(:joe).name, results.first.name
+    assert_equal name, results.first.name
   end
 
   test "sorts by given field" do
@@ -20,7 +21,7 @@ class PlayerStatsFilterTest < ActiveSupport::TestCase
     assert_equal [player_stats(:joe).longest_rush, player_stats(:shaun).longest_rush], results
   end
 
-  test "sorts in desc order by given field" do
+  test "sorts in desc order" do
     filter = PlayerStatsFilter.new(sort_by_field: "longest_rush", sort_direction: :desc)
     results = filter.find_stats.pluck(:longest_rush)
 
