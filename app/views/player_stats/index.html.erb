@@ -1,0 +1,62 @@
+<h1>Player Stats</h1>
+
+<div class="csv-link">
+  <%= link_to "Download CSV",
+    player_stats_path(player_name: params[:player_name],
+                      sort_by: params[:sort_by],
+                      order: params[:order],
+                      format: :csv) %>
+</div>
+
+<%= form_tag(player_stats_path, method: :get) do %>
+  <%= text_field_tag :player_name, params[:player_name], class:"player-name-filter", placeholder: 'Filter by player name' %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Position</th>
+      <th>Rushing attempts per game avg</th>
+      <th>Rushing attempts</th>
+      <th><%= sortable_header('Total rushing yards', :total_rushing_yards) %></th>
+      <th>Rushing avg yards per attempt</th>
+      <th>Rushing yards per game</th>
+      <th><%= sortable_header('Total rushing touchdowns', :total_rushing_touchdowns) %></th>
+      <th><%= sortable_header('Logest rush', :longest_rush) %></th>
+      <th>Rushing first downs</th>
+      <th>Rushing first down pct</th>
+      <th>Rushing 20 yards each</th>
+      <th>Rushing 40 yards each</th>
+      <th>Rushing fumbles</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player_stats.each do |player_stat| %>
+      <tr>
+        <td><%= player_stat.name %></td>
+        <td><%= player_stat.team %></td>
+        <td><%= player_stat.position %></td>
+        <td><%= player_stat.rushing_attempts_per_game_avg %></td>
+        <td><%= player_stat.rushing_attempts %></td>
+        <td><%= player_stat.total_rushing_yards %></td>
+        <td><%= player_stat.rushing_avg_yards_per_attempt %></td>
+        <td><%= player_stat.rushing_yards_per_game %></td>
+        <td><%= player_stat.total_rushing_touchdowns %></td>
+        <td><%= longest_rush(player_stat) %></td>
+        <td><%= player_stat.rushing_first_downs %></td>
+        <td><%= player_stat.rushing_first_down_pct %></td>
+        <td><%= player_stat.rushing_20_yards_each %></td>
+        <td><%= player_stat.rushing_40_yards_each %></td>
+        <td><%= player_stat.rushing_fumbles %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination-controls">
+  <%= paginate @player_stats %>
+</div>

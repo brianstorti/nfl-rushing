@@ -1,0 +1,33 @@
+joe:
+  name: Joe Banyard
+  team: JAX
+  position: RB
+  rushing_attempts_per_game_avg: 1
+  rushing_attempts: 1
+  total_rushing_yards: 1
+  rushing_avg_yards_per_attempt: 1
+  rushing_yards_per_game: 1
+  total_rushing_touchdowns: 1
+  longest_rush: 1
+  rushing_first_downs: 1
+  rushing_first_down_pct: 1
+  rushing_20_yards_each: 1
+  rushing_40_yards_each: 1
+  rushing_fumbles: 1
+
+shaun:
+  name: Shaun Hill
+  team: MIN
+  position: QB
+  rushing_attempts_per_game_avg: 2
+  rushing_attempts: 2
+  total_rushing_yards: 2
+  rushing_avg_yards_per_attempt: 2
+  rushing_yards_per_game: 2
+  total_rushing_touchdowns: 2
+  longest_rush: 2
+  rushing_first_downs: 2
+  rushing_first_down_pct: 2
+  rushing_20_yards_each: 2
+  rushing_40_yards_each: 2
+  rushing_fumbles: 2
